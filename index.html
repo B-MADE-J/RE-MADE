@@ -8,7 +8,7 @@
   <title>BE_MADE</title>
 
   <style>
-    ```css
+
 /* =========================================================
    기본 설정
 ========================================================= */
@@ -100,6 +100,8 @@ nav a:hover {
       #1D4ED8,
       #3B82F6
     );
+
+  z-index: 0;
 }
 
 
@@ -107,6 +109,7 @@ nav a:hover {
 
 .hero-content {
   max-width: 700px;
+  z-index: 2;
 }
 
 
@@ -121,6 +124,7 @@ nav a:hover {
   margin-bottom: 20px;
 
   color: #e2f1f8;
+  z-index: 2;
 }
 
 
@@ -176,6 +180,8 @@ nav a:hover {
   padding: 120px 10%;
 
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .gray {
@@ -381,6 +387,18 @@ footer {
 
   font-size: 13px;
 }
+.B-MADE_logo{
+    position: absolute;
+    right: 5%;
+    top: 15%;
+
+    width: auto;
+    height: 60cqh;
+
+    z-index: 0;
+
+    filter: drop-shadow(0.1cqw 0.1cqw 1cqw rgba(0, 0, 0, 0.5));
+}
 
 
 /* =========================================================
@@ -424,11 +442,13 @@ footer {
 
     display: flex;
     align-items: center;
+    z-index: 0;
   }
 
   .hero-content {
     width: 100%;
     max-width: 100%;
+    z-index: 2;
   }
 
   .small-title {
@@ -595,7 +615,7 @@ footer {
   }
 
 }
-```
+
 
   </style>
 </head>
@@ -616,7 +636,7 @@ footer {
 
   <!-- 메인 -->
   <section class="hero">
-
+    <img src="https://raw.githubusercontent.com/B-MADE-J/RE-MADE/img/BE.png" class="B-MADE_logo">
     <div class="hero-content">
       <p class="small-title">INNOVATION & TECHNOLOGY</p>
 
@@ -624,6 +644,7 @@ footer {
         내용 필요<br>
         내용 필요
       </h1>
+
 
       <p style="color: #344e64">
         내용 필요
@@ -783,5 +804,4 @@ footer {
 
 </body>
 </html>
-```
 
