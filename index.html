@@ -27,6 +27,7 @@ body {
   font-family: Arial, "Noto Sans KR", sans-serif;
   color: #222;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 
@@ -35,7 +36,7 @@ body {
 ========================================================= */
 
 header {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -87,9 +88,13 @@ nav a:hover {
 ========================================================= */
 
 .hero {
-  min-height: 100vh;
+  position: relative;
+  top: 0%;
+  /* min-height: 100vh; */
 
-  padding: 120px 10%;
+  padding: 70px 10%;
+
+  width: 90vw;
 
   display: flex;
   align-items: center;
@@ -98,7 +103,7 @@ nav a:hover {
     linear-gradient(
       120deg,
       #1D4ED8,
-      #3B82F6
+      #1D4ED8
     );
 
   z-index: 0;
@@ -108,6 +113,8 @@ nav a:hover {
 /* 첫 화면 내용 */
 
 .hero-content {
+  position: relative;
+  left: 0;
   max-width: 700px;
   z-index: 2;
 }
@@ -119,7 +126,7 @@ nav a:hover {
   font-size: 14px;
   font-weight: bold;
 
-  letter-spacing: 3px;
+  letter-spacing: 03px;
 
   margin-bottom: 20px;
 
@@ -134,7 +141,7 @@ nav a:hover {
   font-size: clamp(45px, 7vw, 90px);
   line-height: 1.15;
 
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 
@@ -143,13 +150,17 @@ nav a:hover {
 .hero p {
   font-size: 18px;
 
-  margin-bottom: 35px;
+  margin-bottom: 10px;
 }
 
 
 /* 버튼 */
 
 .button {
+  position: relative;
+  top: 0;
+  left: 0vw;
+  /* transform: translateX(-1.2vw); */
   display: inline-block;
 
   padding: 13px 28px;
@@ -387,19 +398,70 @@ footer {
 
   font-size: 13px;
 }
-.B-MADE_logo{
-    position: absolute;
-    right: 5%;
-    top: 15%;
-
-    width: auto;
-    height: 60cqh;
-
-    z-index: 0;
-
-    filter: drop-shadow(0.1cqw 0.1cqw 1cqw rgba(0, 0, 0, 0.5));
+.hero_logo{
+  position: relative;
+  left: 0;
+  top: 0;
+  
+  color: #e2f1f8;
 }
+.hero_logo h1 {
+  font-size: 20vw;
+  white-space: nowrap;
+}
+.under_logo{
+  position: relative;
+  left:0;
+  top: 0;
+  color: #000000;
+ 
+  font-family: "Pretended Bold";
+  font-weight: 700;
+}
+.under_logo p {
+  font-size: 3vw;
+  white-space: nowrap;
+}
+.curser{  
+  position:absolute;
 
+  transform: translateX(85vw);
+
+  background-color: #000000;
+  color:#000000;
+  /* height: 100vh; */
+  top: 0;
+  bottom: 0;
+  width: 1vw;
+  
+  pointer-events: none;
+}
+.under_curser{
+  position: absolute;
+  top: -1%;
+  left: 50%;
+  transform: translateX(-50%);
+
+
+  width: 4vw;
+  height: 1vw;
+  background-color: #000000;
+  color:#000000;
+  pointer-events: none;
+}
+.under_curser2{
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
+
+  width: 4vw;
+  height: 1vw;
+  background-color: #000000;
+  color:#000000;
+  pointer-events: none;
+}
 
 /* =========================================================
    MOBILE
@@ -436,7 +498,7 @@ footer {
   ======================================================= */
 
   .hero {
-    min-height: 100vh;
+    min-height: 10vh;
 
     padding: 90px 24px 50px;
 
@@ -478,6 +540,53 @@ footer {
 
     font-size: 14px;
   }
+
+  .hero_logo{
+    position: relative;
+    left: 0;
+    top: 0;
+
+    color: #e2f1f8;
+  }
+  .hero_logo h1 {
+    font-size: 20vw;
+    white-space: nowrap;
+  }
+  .under_logo{
+    position: relative;
+    left:0;
+    top: 0;
+    color: #000000;
+  
+    font-family: "Pretended Bold";
+    font-weight: 700;
+  }
+  .under_logo p {
+    font-size: 3vw;
+  }
+  .curser{  
+    position:absolute;
+
+    left: 10%;
+
+    top: 0;
+    bottom: 0;
+
+    
+
+
+    background-color: #000000;
+    color:#000000;
+    
+    width: 1vw;
+
+    pointer-events: none;
+  }
+  /* .under_curser{
+    position: absolute;
+
+  } */
+
 
 
   /* =======================================================
@@ -636,24 +745,33 @@ footer {
 
   <!-- 메인 -->
   <section class="hero">
-    <img src="https://raw.githubusercontent.com/B-MADE-J/RE-MADE/img/BE.png" class="B-MADE_logo">
+    
     <div class="hero-content">
-      <p class="small-title">INNOVATION & TECHNOLOGY</p>
+      <p class="small-title">Turn your imagination into reality</p>
 
-      <h1 style="color: #e2f1f8">
-        내용 필요<br>
-        내용 필요
-      </h1>
+      <div class="hero_logo">
+        <h1>
+        B-made
+        </h1>
+      </div>
 
 
-      <p style="color: #344e64">
-        내용 필요
-      </p>
+      <div class="under_logo">
+        <p>
+        1 Be made, 만들어지다.<br>
+        2 Brand made, 브랜드를 만들다.
+        </p>
+      </div>
 
       <a href="#about" class="button">동아리 알아보기</a>
     </div>
+    <div class="curser">
+      <div class="under_curser"></div>
+      <div class="under_curser2"></div>
+    </div>
 
   </section>
+  
 
 
   <!-- 회사소개 -->
@@ -762,19 +880,20 @@ footer {
         <div class="project-image">PROJECT 01</div>
 
         <div class="project-content">
-            <h3>키캡 제작</h3>
-            <p>
-              내용 필요
-            </p>
-          
-            <a href="https://b-made-j.github.io/B-MADE/"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="button"
-               style="margin-top: 15px;">
-              키캡 게임 사이트
-            </a>
-          </div>
+          <h3>키캡 제작</h3>
+          <p>
+            내용 필요
+          </p>
+
+          <a href="https://b-made-j.github.io/B-MADE/"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="button"
+             style="margin-top: 15px;">
+            키캡 게임 사이트
+          </a>
+        </div>
+      </div>
 
 
       <div class="project-card">
@@ -815,6 +934,96 @@ footer {
     <p>© BE-MADE 개발팀 제작</p>
 
   </footer>
+
+
+  <!-- =========================================================
+       첫 로딩 드래그 애니메이션
+       - 선택 안 된 모습(흰 배경, 검은 글자)의 복사본을 히어로 위에 덮고
+       - 커서가 왼쪽에서 오른쪽으로 이동하는 만큼 복사본을 잘라내서
+         뒤의 파란 "선택 영역"이 드러나게 함
+       - 끝나면 복사본을 지우고 원래 모습 그대로 남김
+  ========================================================= -->
+  <style>
+    .hero-plain {
+      position: absolute;
+      margin: 0;
+      background: #fff;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .hero-plain .small-title,
+    .hero-plain .hero_logo {
+      color: #222;
+    }
+  </style>
+
+  <script>
+    (function () {
+      // 움직임 줄이기 설정을 켠 사용자는 애니메이션 없이 바로 최종 모습
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var hero = document.querySelector('.hero');
+      var cursor = hero && hero.querySelector('.curser');
+      if (!cursor) return;
+
+      var heroRect = hero.getBoundingClientRect();
+      var cursorRect = cursor.getBoundingClientRect();
+      var width = heroRect.width;
+      // 커서의 최종 위치(지금 모습 그대로의 위치)
+      var endX = cursorRect.left + cursorRect.width / 2 - heroRect.left;
+
+      // 선택 안 된 모습의 복사본
+      var plain = hero.cloneNode(true);
+      plain.classList.add('hero-plain');
+      plain.setAttribute('aria-hidden', 'true');
+      var plainCursor = plain.querySelector('.curser');
+      if (plainCursor) plainCursor.remove();
+      plain.querySelectorAll('a').forEach(function (a) { a.tabIndex = -1; });
+      plain.style.top = (heroRect.top + window.scrollY) + 'px';
+      plain.style.left = (heroRect.left + window.scrollX) + 'px';
+      plain.style.width = width + 'px';
+      plain.style.height = heroRect.height + 'px';
+      hero.after(plain);
+
+      // 커서가 복사본 위에 보이도록
+      hero.style.zIndex = 'auto';
+      cursor.style.zIndex = '6';
+
+      function setPosition(x) {
+        cursor.style.translate = (x - endX) + 'px 0';
+        var edge = Math.min(Math.max(x, 0), width);
+        plain.style.clipPath = 'inset(0 0 0 ' + edge + 'px)';
+      }
+
+      function ease(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      }
+
+      var DELAY = 500;     // 시작 전 잠깐 멈춤 (ms)
+      var DURATION = 1400; // 드래그 시간 (ms)
+      var start = null;
+
+      setPosition(0);
+
+      function step(now) {
+        if (start === null) start = now;
+        var t = Math.min(Math.max((now - start - DELAY) / DURATION, 0), 1);
+        setPosition(ease(t) * endX);
+
+        if (t < 1) {
+          requestAnimationFrame(step);
+        } else {
+          // 원래 모습으로 정리
+          plain.remove();
+          cursor.style.translate = '';
+          cursor.style.zIndex = '';
+          hero.style.zIndex = '';
+        }
+      }
+
+      requestAnimationFrame(step);
+    })();
+  </script>
 
 </body>
 </html>
