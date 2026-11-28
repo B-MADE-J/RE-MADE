@@ -21,10 +21,12 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;   /* 다크 모드 브라우저에서도 밝은 화면 유지 */
 }
 
 body {
   font-family: Arial, "Noto Sans KR", sans-serif;
+  background: #fff;
   color: #222;
   line-height: 1.6;
   overflow-x: hidden;
@@ -341,10 +343,23 @@ nav a:hover {
 
 .project-card {
   border: 1px solid #ddd;
-
   background: white;
-
   overflow: hidden;
+  transition: 0.2s;
+
+  /* 버튼 기본 스타일 제거 */
+  padding: 0;
+  font: inherit;
+  color: #222;
+  text-align: left;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
 }
 
 
@@ -461,6 +476,82 @@ footer {
   background-color: #000000;
   color:#000000;
   pointer-events: none;
+}
+
+.project-modal {
+  width: min(960px, 92vw);
+  max-height: 90vh;
+  margin: auto;            /* 화면 가운데 */
+  padding: 50px 60px;
+  border: none;
+  border-radius: 8px;
+  overflow-y: auto;        /* 내용이 길면 스크롤 */
+}
+.project-modal::backdrop {
+  background: rgba(0, 0, 0, 0.6);   /* 뒤 배경 어둡게 */
+}
+
+/* 설명창 내용 */
+.modal-image {
+  height: 400px;
+  margin-bottom: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ddd;
+
+  font-size: 25px;
+  font-weight: bold;
+  color: #777;
+}
+
+/* 카드·설명창 회색 박스 안의 사진: 박스 크기에 맞춰 꽉 채움 */
+.project-image img,
+.modal-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.project-image,
+.modal-image {
+  overflow: hidden;
+}
+.project-modal h3 {
+  font-size: 34px;
+  margin-bottom: 5px;
+}
+.modal-meta {
+  color: #999;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.project-modal p {
+  color: #555;
+  font-size: 17px;
+  line-height: 1.8;
+}
+.modal-link {
+  margin-top: 25px;
+}
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+
+  border: none;
+  background: none;
+
+  font-size: 28px;
+  cursor: pointer;
+  color: #777;
+}
+
+/* 설명창이 열려 있는 동안 뒤 페이지 스크롤 막기 */
+body:has(dialog[open]) {
+  overflow: hidden;
 }
 
 /* =========================================================
@@ -706,6 +797,23 @@ footer {
     font-size: 19px;
   }
 
+  .project-modal {
+    width: 94vw;
+    padding: 40px 20px 28px;
+  }
+
+  .modal-image {
+    height: 200px;
+  }
+
+  .project-modal p {
+    font-size: 15px;
+  }
+
+  .project-modal h3 {
+    font-size: 22px;
+  }
+
 
   /* =======================================================
      FOOTER
@@ -876,48 +984,65 @@ footer {
 
     <div class="project-grid">
 
-      <div class="project-card">
+      <button class="project-card" data-modal="modal-1">
         <div class="project-image">PROJECT 01</div>
-
         <div class="project-content">
           <h3>키캡 제작</h3>
-          <p>
-            내용 필요
-          </p>
-
-          <a href="https://b-made-j.github.io/B-MADE/"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="button"
-             style="margin-top: 15px;">
-            키캡 게임 사이트
-          </a>
+          <p>내용 필요</p>
         </div>
-      </div>
+      </button>
+
+      <dialog id="modal-1" class="project-modal">
+        <button class="modal-close" aria-label="닫기">×</button>
+        <div class="modal-image">PROJECT 01</div>
+        <h3>키캡 제작</h3>
+        <p class="modal-meta">디자인 / 개발</p>
+        <p>프로젝트 상세 설명을 여기에 적으세요.</p>
+      
+        <a href="https://b-made-j.github.io/B-MADE/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="button modal-link">
+          키캡 게임 사이트 →
+        </a>
+      </dialog>
 
 
-      <div class="project-card">
+      <button class="project-card" data-modal="modal-2">
         <div class="project-image">PROJECT 02</div>
-
         <div class="project-content">
           <h3>장유 시장 리브랜딩</h3>
-          <p>
-            내용 필요
-          </p>
+          <p>내용 필요</p>
         </div>
-      </div>
+      </button>
+
+      <dialog id="modal-2" class="project-modal">
+        <button class="modal-close" aria-label="닫기">×</button>
+        
+        <h3>장유 시장 리브랜딩</h3>
+        <div class="modal-image">
+        <img src="https://raw.githubusercontent.com/B-MADE-J/RE-MADE/img/20261018_131827.jpg" alt="장유 시장 리브랜딩">
+        </div>
+        <p class="modal-meta">개발 / 기획 / 디자인</p>
+        <p>프로젝트 상세 설명을 여기에 적으세요.</p>
+      </dialog>
 
 
-      <div class="project-card">
+      <button class="project-card" data-modal="modal-3">
         <div class="project-image">PROJECT 03</div>
-
         <div class="project-content">
           <h3>내용 필요</h3>
-          <p>
-            내용 필요
-          </p>
+          <p>내용 필요</p>
         </div>
-      </div>
+      </button>
+
+      <dialog id="modal-3" class="project-modal">
+        <button class="modal-close" aria-label="닫기">×</button>
+        <div class="modal-image">PROJECT 03</div>
+        <h3>내용 필요</h3>
+        <p class="modal-meta">내용 필요</p>
+        <p>프로젝트 상세 설명을 여기에 적으세요.</p>
+      </dialog>
 
     </div>
 
@@ -1023,6 +1148,30 @@ footer {
 
       requestAnimationFrame(step);
     })();
+  </script>
+
+
+  <!-- =========================================================
+       프로젝트 설명창 열기 / 닫기
+  ========================================================= -->
+  <script>
+    // 카드 클릭 → 해당 설명창 열기
+    document.querySelectorAll('.project-card[data-modal]').forEach(function (card) {
+      card.addEventListener('click', function () {
+        document.getElementById(card.dataset.modal).showModal();
+      });
+    });
+
+    document.querySelectorAll('.project-modal').forEach(function (modal) {
+      // × 버튼으로 닫기
+      modal.querySelector('.modal-close').addEventListener('click', function () {
+        modal.close();
+      });
+      // 바깥(어두운 배경) 클릭으로 닫기
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) modal.close();
+      });
+    });
   </script>
 
 </body>
